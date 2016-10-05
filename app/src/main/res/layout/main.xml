@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/image"
+    android:weightSum="1">
+    <TextView android:text="請選擇拼圖的難易度:" 
+    		android:id="@+id/txt_level" 
+    		android:textSize="18sp"    		
+    		android:layout_height="wrap_content"
+    		android:textColor="#FFFFFF"
+    		android:layout_width="match_parent"
+    		android:layout_marginLeft="10dp"/>    		
+	<Button android:text="初級(3╳3)" 
+			android:id="@+id/btn_3x3" 
+			android:scaleType="fitXY" 
+			android:layout_width="fill_parent" 
+			android:layout_height="80px" 
+			android:background="@drawable/buttonlevel"/>
+	<Button android:text="中級(4╳4)" 
+			android:id="@+id/btn_4x4" 
+			android:scaleType="fitXY" 
+			android:layout_width="fill_parent" 
+			android:layout_height="80px" 
+			android:background="@drawable/buttonlevel"/>
+	<Button android:text="高級(5╳5)" 
+			android:id="@+id/btn_5x5" 
+			android:scaleType="fitXY" 
+			android:layout_width="fill_parent" 
+			android:layout_height="80px" 
+			android:background="@drawable/buttonlevel"/>
+	<Button android:text="Load Image"
+			android:id="@+id/btn_load"
+			android:scaleType="fitXY"
+			android:layout_width="fill_parent"
+			android:layout_height="80px"
+			android:background="@drawable/buttonlevel"/>
+	<Button android:text="Capture!"
+			android:id="@+id/btn_shot"
+			android:scaleType="fitXY"
+			android:layout_width="fill_parent"
+			android:layout_height="80px"
+			android:background="@drawable/buttonlevel"/>
+	<Button android:text="Get ScreenShot"
+			android:id="@+id/btn_screenshot"
+			android:scaleType="fitXY"
+			android:layout_width="fill_parent"
+			android:layout_height="80px"
+			android:background="@drawable/buttonlevel"/>
+
+
+	<RelativeLayout android:id="@+id/RelativeLayout1"
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content">
+    	<TextView android:text="請選擇圖片:"    		
+    			android:textSize="18sp"    		
+    			android:layout_height="wrap_content"  		 		
+    			android:layout_width="wrap_content"
+    			android:layout_marginLeft="10dp"
+    			android:id="@+id/textView2" 
+    			android:textAppearance="?android:attr/textAppearanceLarge" 
+    			android:layout_centerVertical="true" 
+    			android:layout_alignParentLeft="true" />
+    	<TextView android:text="1"     	   		
+    			android:textSize="18sp"    		
+    			android:layout_height="wrap_content"
+    			android:layout_width="wrap_content"    		   		   		  		
+				android:id="@+id/textView1" 
+    			android:textColor="#FFFFFF"     		  		
+    			android:layout_toRightOf="@+id/textView2"/>
+    </RelativeLayout>
+
+	<android.support.v4.view.ViewPager
+		android:id="@+id/viewpager"
+		android:layout_width="257dp"
+		android:layout_height="match_parent"
+		android:layout_gravity="center_horizontal"
+		android:layout_marginTop="35dp" />
+
+
+    <ImageView android:id="@+id/ImageView1"
+	 			android:layout_width="wrap_content"
+		android:layout_height="190dp"
+				android:src="@drawable/a"
+		android:layout_gravity="center_horizontal"
+		android:layout_marginTop="10dp" />
+
+	<LinearLayout  android:orientation="horizontal"
+    		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:layout_gravity="center">
+				<Button android:id="@+id/Previous_BUTTON" 
+					android:layout_height="wrap_content" 
+					android:layout_width="wrap_content" 
+					android:layout_marginRight="100dp" 
+					android:layout_marginBottom="5dp"
+					android:background="@drawable/button"/>  		
+				<Button android:id="@+id/NEXT_BUTTON" 						
+					android:layout_width="wrap_content" 
+					android:layout_height="wrap_content" 
+					android:background="@drawable/button2"/>  
+		</LinearLayout>
+
+</LinearLayout>

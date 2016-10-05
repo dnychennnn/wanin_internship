@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.4.0_721e6780d9de5d436f6d088f1d171cb3a61511fe\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="08383e4f54efd7b6838f852dd6ccbfa96f80f1fb">
+        <dex dex="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_10d83442c49d5ea363648b490db609825eb2f37a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.4.0_fc46b5aa1c4b7312574444ad49ed5d67a9c19333\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\libs\internal_impl-23.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.4.0_76cc94325a664277cbd3ddbec01a17e28ee9ff1e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\yungyu.chen\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\23.4.0\support-annotations-23.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.4.0_36202704a2cfa1511b5966ab9b35ed8cd967aecd\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\intermediates\exploded-aar\com.davemorrissey.labs\subsampling-scale-image-view\3.5.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="fa7c91f0a2b43f8d9fa001e3d04e2d600f24cc68">
+        <dex dex="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.davemorrissey.labs-subsampling-scale-image-view-3.5.0_331532dde5d63828b4e25c73f2022409979d28c6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-23.4.0_4a75c5357b0482059b06d7f5c08cb625daed0883\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="648d92b8f8fe7f3011a1d90ef9420cca1c0192e6">
+        <dex dex="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_0c2d47d1392672cc00577b25a6f6122ea546e3cb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.4.0_e5e0aced1eecdfd0bc9fcffd78b31e8b89391ef5\classes.dex" />
+    </item>
+
+</items>

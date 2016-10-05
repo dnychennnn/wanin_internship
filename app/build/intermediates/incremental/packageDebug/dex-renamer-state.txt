@@ -1,0 +1,7 @@
+#Wed Oct 05 15:25:11 CST 2016
+base.0=C\:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_10d83442c49d5ea363648b490db609825eb2f37a
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=C\:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_0c2d47d1392672cc00577b25a6f6122ea546e3cb\\classes.dex
+base.1=C\:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_0c2d47d1392672cc00577b25a6f6122ea546e3cb
+file.0=C\:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_10d83442c49d5ea363648b490db609825eb2f37a\\classes.dex
