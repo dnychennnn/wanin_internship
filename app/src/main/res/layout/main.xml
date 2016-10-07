@@ -30,44 +30,64 @@
 			android:layout_width="fill_parent" 
 			android:layout_height="80px" 
 			android:background="@drawable/buttonlevel"/>
-	<Button android:text="Load Image"
-			android:id="@+id/btn_load"
-			android:scaleType="fitXY"
-			android:layout_width="fill_parent"
-			android:layout_height="80px"
-			android:background="@drawable/buttonlevel"/>
-	<Button android:text="Capture!"
-			android:id="@+id/btn_shot"
-			android:scaleType="fitXY"
-			android:layout_width="fill_parent"
-			android:layout_height="80px"
-			android:background="@drawable/buttonlevel"/>
-	<Button android:text="Get ScreenShot"
-			android:id="@+id/btn_screenshot"
-			android:scaleType="fitXY"
-			android:layout_width="fill_parent"
-			android:layout_height="80px"
-			android:background="@drawable/buttonlevel"/>
 
+
+	<LinearLayout
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<Button android:text="Get ScreenShot"
+                android:id="@+id/btn_screenshot"
+                android:scaleType="fitXY"
+                android:layout_width="fill_parent"
+                android:layout_height="80px"
+                android:background="@drawable/buttonlevel"
+			android:layout_weight="1" />
+
+		<Button android:text="Capture!"
+                android:id="@+id/btn_shot"
+                android:scaleType="fitXY"
+                android:layout_width="fill_parent"
+                android:layout_height="80px"
+                android:background="@drawable/buttonlevel"
+			android:layout_weight="1" />
+
+		<Button android:text="Load Image"
+                android:id="@+id/btn_load"
+                android:scaleType="fitXY"
+                android:layout_width="fill_parent"
+                android:layout_height="80px"
+                android:background="@drawable/buttonlevel"
+			android:layout_weight="1" />
+	</LinearLayout>
+
+	<Button
+		android:text="轉珠"
+		android:layout_width="match_parent"
+		android:id="@+id/btn_turn"
+		android:background="@drawable/buttonlevel"
+		android:layout_height="80px" />
 
 	<RelativeLayout android:id="@+id/RelativeLayout1"
-		android:layout_width="wrap_content" 
-		android:layout_height="wrap_content">
-    	<TextView android:text="請選擇圖片:"    		
-    			android:textSize="18sp"    		
-    			android:layout_height="wrap_content"  		 		
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:paddingBottom="-10px">
+    	<TextView android:text="請選擇圖片:"
+    			android:textSize="18sp"
+    			android:layout_height="wrap_content"
     			android:layout_width="wrap_content"
     			android:layout_marginLeft="10dp"
-    			android:id="@+id/textView2" 
-    			android:textAppearance="?android:attr/textAppearanceLarge" 
-    			android:layout_centerVertical="true" 
+    			android:id="@+id/textView2"
+    			android:textAppearance="?android:attr/textAppearanceLarge"
+    			android:layout_centerVertical="true"
     			android:layout_alignParentLeft="true" />
-    	<TextView android:text="1"     	   		
-    			android:textSize="18sp"    		
+    	<TextView android:text="1"
+    			android:textSize="18sp"
     			android:layout_height="wrap_content"
-    			android:layout_width="wrap_content"    		   		   		  		
-				android:id="@+id/textView1" 
-    			android:textColor="#FFFFFF"     		  		
+    			android:layout_width="wrap_content"
+				android:id="@+id/textView1"
+    			android:textColor="#FFFFFF"
     			android:layout_toRightOf="@+id/textView2"/>
     </RelativeLayout>
 
@@ -79,12 +99,12 @@
 		android:layout_marginTop="35dp" />
 
 
-    <ImageView android:id="@+id/ImageView1"
-	 			android:layout_width="wrap_content"
-		android:layout_height="190dp"
-				android:src="@drawable/a"
-		android:layout_gravity="center_horizontal"
-		android:layout_marginTop="10dp" />
+	<ImageView android:id="@+id/ImageView1"
+                 android:layout_width="wrap_content"
+        android:layout_height="190dp"
+                android:src="@drawable/a"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp" />
 
 	<LinearLayout  android:orientation="horizontal"
     		android:layout_width="wrap_content"

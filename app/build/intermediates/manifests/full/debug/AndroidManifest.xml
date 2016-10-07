@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="10"
+        android:minSdkVersion="21"
         android:targetSdkVersion="10" />
     <!-- 需要攝錄鏡頭設備 -->
     <uses-feature android:name="android.hardware.camera" />

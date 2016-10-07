@@ -91,21 +91,20 @@ public class PuzzleActivity extends Activity implements SensorEventListener
 	public void init()
 	{//初始化
 		image1= (ImageView) findViewById(R.id.ImageView1);
-
-
-
 		Button btnEasy;
 		Button btnMiddle;
 		Button btnHard;
 		Button btnLoad;
 		Button btnShot;
         Button btnScreenShot;
+		Button btnTurn;
 		//取得按鈕元件
 		btnEasy = (Button)findViewById(R.id.btn_3x3);
 		btnMiddle = (Button)findViewById(R.id.btn_4x4);
 		btnHard = (Button)findViewById(R.id.btn_5x5);
 		btnLoad = (Button)findViewById(R.id.btn_load);
 		btnShot = (Button)findViewById(R.id.btn_shot);
+		btnTurn = (Button)findViewById(R.id.btn_turn);
         btnScreenShot = (Button)findViewById(R.id.btn_screenshot);
 		// 設定Click事件
 		btnEasy.setOnClickListener(onbtnChoose);
@@ -114,6 +113,7 @@ public class PuzzleActivity extends Activity implements SensorEventListener
 		btnLoad.setOnClickListener(onbtnChoose);
 		btnShot.setOnClickListener(onbtnChoose);
         btnScreenShot.setOnClickListener(onbtnChoose);
+		btnTurn.setOnClickListener(onbtnChoose);
 
 		//選取圖片的Button
 		Button btn_next = (Button)findViewById(R.id.NEXT_BUTTON);//設定觸碰更換圖片按鈕的反應
@@ -326,6 +326,15 @@ public class PuzzleActivity extends Activity implements SensorEventListener
                 case R.id.btn_screenshot:
                     takeScreenshot();
                     break;
+				case R.id.btn_turn:
+					x_count=4;
+					y_count=4;
+					PuzzleGame gameTurn = new PuzzleGame(x_count,y_count,v.getContext(),returnTitle);
+					goal_image_id = R.drawable.chess;//限定為棋盤
+					bmpBuffer = BitmapFactory.decodeResource(getResources(), goal_image_id);
+					gameTurn.game_start(bmpBuffer);
+					sence = R.layout.middle;//記錄目前在middle
+					break;
 			}
 		}
 	};

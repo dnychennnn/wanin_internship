@@ -3,6 +3,15 @@
 
     <item
         is-multidex="true"
+        jar="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d2a0a2951b065588e3ee8485bdea2f74e1e84e0b">
+        <dex dex="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_10d83442c49d5ea363648b490db609825eb2f37a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -12,12 +21,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="C:\Users\yungyu.chen\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\23.4.0\support-annotations-23.4.0.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="08383e4f54efd7b6838f852dd6ccbfa96f80f1fb">
-        <dex dex="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_10d83442c49d5ea363648b490db609825eb2f37a\classes.dex" />
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.4.0_36202704a2cfa1511b5966ab9b35ed8cd967aecd\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -27,24 +36,6 @@
         revision="24.0.2"
         sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
         <dex dex="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.4.0_fc46b5aa1c4b7312574444ad49ed5d67a9c19333\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\libs\internal_impl-23.4.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
-        <dex dex="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.4.0_76cc94325a664277cbd3ddbec01a17e28ee9ff1e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\yungyu.chen\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\23.4.0\support-annotations-23.4.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
-        <dex dex="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.4.0_36202704a2cfa1511b5966ab9b35ed8cd967aecd\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -63,6 +54,15 @@
         revision="24.0.2"
         sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
         <dex dex="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-23.4.0_4a75c5357b0482059b06d7f5c08cb625daed0883\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\libs\internal_impl-23.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.4.0_76cc94325a664277cbd3ddbec01a17e28ee9ff1e\classes.dex" />
     </item>
     <item
         is-multidex="true"

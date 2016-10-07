@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Outline;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
@@ -22,6 +24,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewOutlineProvider;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -34,6 +37,8 @@ public class PuzzleGame
 	private int CurrentButtonNumber = 5;					//拼圖鈕的id編號(可隨意列)
 	private int pre_x;
 	private int pre_y;
+	private int now_x;
+	private int now_y;
 	private int block;										//目前空格的拼圖鈕座標編號
 	private int[] move_btn;									//目前要移動至空格的拼圖鈕座標編號,移動方向
 	private int[] move_direction = new int[]{0,0};			//判斷全螢幕時之上下左右滑動
@@ -128,7 +133,9 @@ public class PuzzleGame
 					params1.setMargins(j*puzzle_xdp, i*puzzle_ydp, j*50+50, i*50+50);
 					btnBuffer.setLayoutParams(params1);
 					//設定按鈕的觸控事件
-					btnBuffer.setOnTouchListener(onTouchPuzzle);
+//					btnBuffer.setOnTouchListener(onTouchPuzzle);
+					btnBuffer.setOnTouchListener(onTouchTurn);
+
 					//將按鈕加入拼圖面板中
 //					puzzle_panel.addView(btnBuffer);
 					//刷新按鈕狀態
@@ -358,6 +365,60 @@ public class PuzzleGame
 		}
 	};
 
+	int down_x;
+	int down_y;
+	private View.OnTouchListener onTouchTurn = new View.OnTouchListener() {
+		@Override
+		public boolean onTouch(View view, MotionEvent event) {
+			//動畫中不接受事件
+			if(scene_flag != 0)
+				return true;
+			//取得資源
+			ImageView btnBuffer=(ImageView)activity.findViewById(view.getId());
+			FrameLayout.LayoutParams p_start =(FrameLayout.LayoutParams)btnBuffer.getLayoutParams();
+			pre_x=p_start.leftMargin;
+			pre_y=p_start.topMargin;
+
+			switch(event.getAction())
+			{//依touch事件不同作不同的事情
+				case MotionEvent.ACTION_DOWN:
+					//按下時，取得目前的x,y
+
+					Log.i("pre", pre_x + "  " + pre_y);
+
+					down_x = (int)event.getX();
+					down_y = (int)event.getY();
+
+					btnBuffer.setAlpha(0.5f);
+					//btnBuffer.setPadding(10,0,0,20);
+					Log.i("up", down_x + "  " + down_y);
+					break;
+				case MotionEvent.ACTION_MOVE:
+					//移動時，判斷按鈕移動
+					//判斷move的方向
+					now_x =((int)event.getX()-down_x)+pre_x;
+					now_y = ((int)event.getY()-down_y)+pre_y;
+					Log.i("move", now_x + "  " + now_y);
+
+					p_start.setMargins(now_x,now_y,0,0);
+					btnBuffer.setLayoutParams(p_start);
+					break;
+				case MotionEvent.ACTION_UP:
+
+					int new_x = (now_x/puzzle_xdp)*puzzle_xdp;
+					int new_y = (now_y/puzzle_ydp)*puzzle_ydp;
+
+					p_start.setMargins(new_x, new_y, 0, 0);
+					Log.i("XY", new_x + "  " + new_y);
+					btnBuffer.setLayoutParams(p_start);
+					btnBuffer.setAlpha(1f);
+					//btnBuffer.setPadding(0,0,0,0);
+			}
+
+			return true;
+		}
+	};
+
     private View.OnTouchListener onTouchCancel = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -573,7 +634,7 @@ public class PuzzleGame
 			Puzzles[block] = Puzzles[move_btn[0]];
 			Puzzles[move_btn[0]] = new PuzzleObject();
 
-			//確認拼圖已經到目標處
+			//確認拼圖已經到答案處
 			check_OK(block);
 
 			block = move_btn[0];
