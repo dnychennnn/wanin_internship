@@ -4,27 +4,41 @@
     density="xxhdpi"
     format="8"
     plugin-version="2.2.0"
-    timestamp="32440370280836"
+    timestamp="4296906587413"
     token="-2696571113257284882"
-    verifier="FULL_BUILD_REQUESTED" >
+    verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="2826" />
+        duration="7022" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="403" />
+        duration="1910" />
     <task
         name="verifier"
-        duration="53" />
+        duration="76" />
 
     <artifact
-        location="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\outputs\apk\app-debug.apk"
-        type="MAIN" />
+        location="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_3\classes.dex"
+        type="DEX" />
 
+    <build
+        timestamp="3642165095546"
+        verifier="FULL_BUILD_REQUESTED" >
+        <artifact
+            location="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\outputs\apk\app-debug.apk"
+            type="MAIN" />
+    </build>
+    <build
+        timestamp="4296906587413"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_3\classes.dex"
+            type="DEX" />
+    </build>
     <build
         timestamp="32440370280836"
         verifier="FULL_BUILD_REQUESTED" >

@@ -138,6 +138,27 @@ public class PuzzleGame
                 }
             }
         }
+		//答案面版安裝
+		imgAnswer = (ImageView)activity.findViewById(R.id.img_answer);
+		imgAnswer.setImageBitmap(puzzle_goal);
+
+		//判定是否已經有正確的按鈕
+		check_original_OK();
+
+		//主功能選單事件安裝
+		//--重玩鈕--
+		btnRestart = (Button)activity.findViewById(R.id.btn_restart);
+		btnRestart.setOnClickListener(onClickRestart);
+		//--答案鈕--
+		btnAnswer = (Button)activity.findViewById(R.id.btn_answer);
+		btnAnswer.setOnTouchListener(onTouchAnswer);
+		//回主選單
+		btnReturnTitle= (Button)activity.findViewById(R.id.btn_returntitle);
+		btnReturnTitle.setOnClickListener(onClickReturntitle);
+		//切換全螢幕滑動
+		btnFullScreen = (Button)activity.findViewById(R.id.btnfullscreen);
+		btnFullScreen.setOnClickListener(OnClickFullScreen);
+		btnFullScreen.setOnClickListener(OnClickFullScreen);
     }
 
     public void turn_start(Bitmap _goalImage)
@@ -194,7 +215,6 @@ public class PuzzleGame
 		//判定是否已經有正確的按鈕
 		check_original_OK();
 
-
 		//主功能選單事件安裝
 		//--重玩鈕--
 		btnRestart = (Button)activity.findViewById(R.id.btn_restart);
@@ -208,6 +228,7 @@ public class PuzzleGame
 		//切換全螢幕滑動
 		btnFullScreen = (Button)activity.findViewById(R.id.btnfullscreen);
         btnFullScreen.setOnClickListener(OnClickFullScreen);
+		btnFullScreen.setVisibility(View.INVISIBLE);
     }
 
 	public void set_QA_array(int _x_count,int _y_count)
@@ -488,7 +509,6 @@ public class PuzzleGame
                             check_OK(i*x_count+j); //判斷是否已達正確位置並設flag
                         }
                     }
-
                     btnBuffer.setAlpha(1f);
                     btnBuffer.setPadding(0,0,0,0);
 			}
@@ -592,11 +612,6 @@ public class PuzzleGame
 		}
 	};
 
-
-    public void switch_button() {
-
-
-    }
 
 
 
