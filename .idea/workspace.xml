@@ -6,6 +6,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="corr" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="info" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
     <option name="TOOL_WINDOW_REGEXP_FILTER" value="false" />
@@ -20,13 +21,11 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/appGame/Puzzle/PuzzleActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/appGame/Puzzle/PuzzleActivity$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/appGame/Puzzle/PuzzleGame$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/appGame/Puzzle/PuzzleGame$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/appGame/Puzzle/PuzzleGame$10.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/appGame/Puzzle/PuzzleGame$10.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/appGame/Puzzle/PuzzleGame$11.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/appGame/Puzzle/PuzzleGame$11.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/appGame/Puzzle/PuzzleGame$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/appGame/Puzzle/PuzzleGame$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/appGame/Puzzle/PuzzleGame$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/appGame/Puzzle/PuzzleGame$3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/appGame/Puzzle/PuzzleGame$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/appGame/Puzzle/PuzzleGame$4.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/appGame/Puzzle/PuzzleGame$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/appGame/Puzzle/PuzzleGame$5.class" />
@@ -35,11 +34,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/appGame/Puzzle/PuzzleGame$8.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/appGame/Puzzle/PuzzleGame$8.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/appGame/Puzzle/PuzzleGame$9.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/appGame/Puzzle/PuzzleGame$9.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/appGame/Puzzle/PuzzleGame.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/appGame/Puzzle/PuzzleGame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/appGame/Puzzle/PuzzleActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/appGame/Puzzle/PuzzleActivity$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/appGame/Puzzle/PuzzleGame$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/appGame/Puzzle/PuzzleGame$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/appGame/Puzzle/PuzzleGame$10.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/appGame/Puzzle/PuzzleGame$10.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/appGame/Puzzle/PuzzleGame$11.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/appGame/Puzzle/PuzzleGame$11.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/appGame/Puzzle/PuzzleGame$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/appGame/Puzzle/PuzzleGame$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/appGame/Puzzle/PuzzleGame$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/appGame/Puzzle/PuzzleGame$3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/appGame/Puzzle/PuzzleGame$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/appGame/Puzzle/PuzzleGame$4.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/appGame/Puzzle/PuzzleGame$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/appGame/Puzzle/PuzzleGame$5.class" />
@@ -48,14 +44,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/appGame/Puzzle/PuzzleGame$8.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/appGame/Puzzle/PuzzleGame$8.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/appGame/Puzzle/PuzzleGame$9.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/appGame/Puzzle/PuzzleGame$9.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/appGame/Puzzle/PuzzleGame.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/appGame/Puzzle/PuzzleGame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/instant-run.zip" afterPath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/instant-run.zip" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_3/classes.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_3/classes.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/appGame/Puzzle/PuzzleActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/appGame/Puzzle/PuzzleActivity$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/appGame/Puzzle/PuzzleGame$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/appGame/Puzzle/PuzzleGame$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/appGame/Puzzle/PuzzleGame$10.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/appGame/Puzzle/PuzzleGame$10.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/appGame/Puzzle/PuzzleGame$11.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/appGame/Puzzle/PuzzleGame$11.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/appGame/Puzzle/PuzzleGame$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/appGame/Puzzle/PuzzleGame$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/appGame/Puzzle/PuzzleGame$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/appGame/Puzzle/PuzzleGame$3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/appGame/Puzzle/PuzzleGame$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/appGame/Puzzle/PuzzleGame$4.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/appGame/Puzzle/PuzzleGame$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/appGame/Puzzle/PuzzleGame$5.class" />
@@ -64,11 +55,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/appGame/Puzzle/PuzzleGame$8.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/appGame/Puzzle/PuzzleGame$8.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/appGame/Puzzle/PuzzleGame$9.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/appGame/Puzzle/PuzzleGame$9.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/appGame/Puzzle/PuzzleGame.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/appGame/Puzzle/PuzzleGame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/appGame/Puzzle/PuzzleActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/appGame/Puzzle/PuzzleActivity$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/appGame/Puzzle/PuzzleGame$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/appGame/Puzzle/PuzzleGame$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/appGame/Puzzle/PuzzleGame$10.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/appGame/Puzzle/PuzzleGame$10.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/appGame/Puzzle/PuzzleGame$11.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/appGame/Puzzle/PuzzleGame$11.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/appGame/Puzzle/PuzzleGame$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/appGame/Puzzle/PuzzleGame$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/appGame/Puzzle/PuzzleGame$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/appGame/Puzzle/PuzzleGame$3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/appGame/Puzzle/PuzzleGame$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/appGame/Puzzle/PuzzleGame$4.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/appGame/Puzzle/PuzzleGame$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/appGame/Puzzle/PuzzleGame$5.class" />
@@ -77,9 +65,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/appGame/Puzzle/PuzzleGame$8.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/appGame/Puzzle/PuzzleGame$8.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/appGame/Puzzle/PuzzleGame$9.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/appGame/Puzzle/PuzzleGame$9.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/appGame/Puzzle/PuzzleGame.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/appGame/Puzzle/PuzzleGame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/dex-renamer-state.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/restart-dex/debug/build-info.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/restart-dex/debug/build-info.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/buildId.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/buildId.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/appGame/Puzzle/PuzzleGame.java" afterPath="$PROJECT_DIR$/app/src/main/java/appGame/Puzzle/PuzzleGame.java" />
@@ -151,12 +137,20 @@
       <file leaf-file-name="PuzzleGame.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/appGame/Puzzle/PuzzleGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-583">
-              <caret line="142" column="46" selection-start-line="142" selection-start-column="46" selection-end-line="142" selection-end-column="46" />
+            <state relative-caret-position="526">
+              <caret line="522" column="43" selection-start-line="522" selection-start-column="43" selection-end-line="522" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#21157#21730#0" expanded="true" />
-                <element signature="e#21729#21730#0" expanded="true" />
+                <element signature="e#21184#21632#0" expanded="true" />
+                <element signature="e#21631#21632#0" expanded="true" />
+                <element signature="e#21690#22261#0" expanded="true" />
+                <element signature="e#22260#22261#0" expanded="true" />
+                <element signature="e#23787#24360#0" expanded="true" />
+                <element signature="e#24359#24360#0" expanded="true" />
+                <element signature="e#29917#30056#0" expanded="true" />
+                <element signature="e#30055#30056#0" expanded="true" />
+                <element signature="e#30115#30287#0" expanded="true" />
+                <element signature="e#30286#30287#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -2535,7 +2529,7 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31069043" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31069043" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2977,12 +2971,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/appGame/Puzzle/PuzzleGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-583">
-          <caret line="142" column="46" selection-start-line="142" selection-start-column="46" selection-end-line="142" selection-end-column="46" />
+        <state relative-caret-position="526">
+          <caret line="522" column="43" selection-start-line="522" selection-start-column="43" selection-end-line="522" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#21157#21730#0" expanded="true" />
-            <element signature="e#21729#21730#0" expanded="true" />
+            <element signature="e#21184#21632#0" expanded="true" />
+            <element signature="e#21631#21632#0" expanded="true" />
+            <element signature="e#21690#22261#0" expanded="true" />
+            <element signature="e#22260#22261#0" expanded="true" />
+            <element signature="e#23787#24360#0" expanded="true" />
+            <element signature="e#24359#24360#0" expanded="true" />
+            <element signature="e#29917#30056#0" expanded="true" />
+            <element signature="e#30055#30056#0" expanded="true" />
+            <element signature="e#30115#30287#0" expanded="true" />
+            <element signature="e#30286#30287#0" expanded="true" />
           </folding>
         </state>
       </provider>

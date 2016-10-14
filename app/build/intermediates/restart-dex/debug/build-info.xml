@@ -4,22 +4,22 @@
     density="xxhdpi"
     format="8"
     plugin-version="2.2.0"
-    timestamp="4296906587413"
+    timestamp="25860156285323"
     token="-2696571113257284882"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="7022" />
+        duration="13043" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="1910" />
+        duration="2495" />
     <task
         name="verifier"
-        duration="76" />
+        duration="889" />
 
     <artifact
         location="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_3\classes.dex"
@@ -33,7 +33,7 @@
             type="MAIN" />
     </build>
     <build
-        timestamp="4296906587413"
+        timestamp="25860156285323"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_3\classes.dex"

@@ -218,7 +218,7 @@ public class PuzzleGame
 		//主功能選單事件安裝
 		//--重玩鈕--
 		btnRestart = (Button)activity.findViewById(R.id.btn_restart);
-		btnRestart.setOnClickListener(onClickRestart);
+		btnRestart.setOnClickListener(onClickTurnRestart);
 		//--答案鈕--
 		btnAnswer = (Button)activity.findViewById(R.id.btn_answer);
 		btnAnswer.setOnTouchListener(onTouchAnswer);
@@ -463,34 +463,61 @@ public class PuzzleGame
 					//移動時，獲取手指位置
 					now_x = ((int)event.getX()-down_x)+pre_x;
 					now_y = ((int)event.getY()-down_y)+pre_y;
-                    if(now_x>3*puzzle_xdp) {
+                    //Limit the button in the grid
+                    if(now_x>3*puzzle_xdp)
                         now_x = 3*puzzle_xdp;
-                    }
-                    if(now_y>3*puzzle_ydp){
+                    if(now_y>3*puzzle_ydp)
                         now_y = 3*puzzle_ydp;
-                    }
+                    if(now_x<0)
+                        now_x = 0;
+                    if(now_y<0)
+                        now_y = 0;
                     //將更新的位置設入參數
 					p_start.setMargins(now_x,now_y,0,0);
                     btnBuffer.setLayoutParams(p_start);
-                    //交換事件
-                    if((now_x-orig_x) > (puzzle_xdp/2) || (now_y - orig_y) > (puzzle_ydp/2) || Math.abs(now_x-orig_x) > (puzzle_xdp/2) || Math.abs(now_y-orig_y) > (puzzle_ydp/2)) {
-                        int change_btn_x = Math.round((float)(now_x)/(float)(puzzle_xdp))*puzzle_xdp;  //計算目的按鈕的得先轉為浮點數再進行運算，方能再滑到一半就switch
-                        int change_btn_y = Math.round((float)now_y/(float)puzzle_ydp)*puzzle_ydp;
-                        Log.i("corr", "x " + change_btn_x + "y " + change_btn_y);
 
+                    //交換事件
+                    int change_btn_x = Math.round((float)(now_x)/(float)(puzzle_xdp))*puzzle_xdp;  //計算目的按鈕的得先轉為浮點數再進行運算，方能再滑到一半就switch
+                    int change_btn_y = Math.round((float)now_y/(float)puzzle_ydp)*puzzle_ydp;
+                    ImageView change_btn = null;
+                    if(Math.abs(now_x-orig_x) > (puzzle_xdp/3) && Math.abs(now_y-orig_y) > (puzzle_ydp/3)) {
+                        if( (now_x-orig_x) > 0 && (now_y-orig_y) > 0) {   //往右下
+                            change_btn = Puzzles[(orig_x / puzzle_xdp) + y_count * (orig_y / puzzle_ydp) + 5].display_object;
+                        } else if((now_x-orig_x) < 0 && (now_y-orig_y) > 0) { //往左下
+                            change_btn = Puzzles[(orig_x / puzzle_xdp) + y_count * (orig_y / puzzle_ydp) + 3].display_object;
+                        } else if((now_x-orig_x) < 0 && (now_y-orig_y) < 0){ //往左上
+                            change_btn = Puzzles[(orig_x / puzzle_xdp) + y_count * (orig_y / puzzle_ydp) - 5].display_object;
+                        } else if((now_x-orig_x) > 0 && (now_y-orig_y) < 0) { //往右上
+                            change_btn = Puzzles[(orig_x / puzzle_xdp) + y_count * (orig_y / puzzle_ydp) - 3].display_object;
+                        }
                         //將要交換的象棋設定位置
-                        ImageView change_btn = Puzzles[ (change_btn_x/puzzle_xdp) + y_count*(change_btn_y/puzzle_ydp)].display_object;
                         FrameLayout.LayoutParams c_start = (FrameLayout.LayoutParams)change_btn.getLayoutParams();
+                        change_btn_x = c_start.leftMargin;
+                        change_btn_y = c_start.topMargin;
                         c_start.setMargins(orig_x, orig_y,0,0);
                         change_btn.setLayoutParams(c_start);
-
                         //將象棋物件調換
                         Puzzles[(orig_x / puzzle_xdp) + y_count * (orig_y / puzzle_ydp)] = Puzzles[(change_btn_x / puzzle_xdp) + y_count * (change_btn_y / puzzle_ydp)];
-
                         orig_x = change_btn_x;
                         orig_y = change_btn_y;
+                    }else {
+                        if(Math.abs(now_x-orig_x)>(puzzle_xdp*0.5) || Math.abs(now_y-orig_y)>(puzzle_ydp*0.5))
+                        {
+                            Log.i("corr", "x " + change_btn_x + "y " + change_btn_y);
 
-                        Log.d("coor_orid", "x: " + orig_x + "y: " + orig_y);
+                            /************ 分別上下左右抑或是斜換 ************/
+                            //上下左右
+                            change_btn = Puzzles[(change_btn_x / puzzle_xdp) + y_count * (change_btn_y / puzzle_ydp)].display_object;
+                            //將要交換的象棋設定位置
+                            FrameLayout.LayoutParams c_start = (FrameLayout.LayoutParams) change_btn.getLayoutParams();
+                            c_start.setMargins(orig_x, orig_y, 0, 0);
+                            change_btn.setLayoutParams(c_start);
+                            //將象棋物件調換
+                            Puzzles[(orig_x / puzzle_xdp) + y_count * (orig_y / puzzle_ydp)] = Puzzles[(change_btn_x / puzzle_xdp) + y_count * (change_btn_y / puzzle_ydp)];
+                            orig_x = change_btn_x;
+                            orig_y = change_btn_y;
+                            Log.d("coor_orid", "x: " + orig_x + "y: " + orig_y);
+                        }
                     }
 					break;
 				case MotionEvent.ACTION_UP:
@@ -523,8 +550,7 @@ public class PuzzleGame
         }
     };
 
-
-	private ImageView.OnClickListener onClickRestart = new ImageView.OnClickListener()
+	private ImageView.OnClickListener onClickTurnRestart = new ImageView.OnClickListener()
 	{
 		@Override
 		public void onClick(View view)
@@ -537,11 +563,30 @@ public class PuzzleGame
 			AlertDialog.Builder alertMessage = new AlertDialog.Builder(activity);
 			alertMessage.setTitle("系統公告");
 			alertMessage.setMessage("是否要重新洗牌，您將失去目前遊玩的進度");
-			alertMessage.setPositiveButton("確定", playAgain);
+			alertMessage.setPositiveButton("確定", turnAgain);
 			alertMessage.setNegativeButton("取消", null);
 			alertMessage.create().show();
 		}
 	};
+
+    private ImageView.OnClickListener onClickRestart = new ImageView.OnClickListener()
+    {
+        @Override
+        public void onClick(View view)
+        {
+            //動畫中不接受事件
+            if(scene_flag != 0)
+                return;
+
+            //按下時，詢問重新啟動遊戲
+            AlertDialog.Builder alertMessage = new AlertDialog.Builder(activity);
+            alertMessage.setTitle("系統公告");
+            alertMessage.setMessage("是否要重新洗牌，您將失去目前遊玩的進度");
+            alertMessage.setPositiveButton("確定", playAgain);
+            alertMessage.setNegativeButton("取消", null);
+            alertMessage.create().show();
+        }
+    };
 
 	private ImageView.OnTouchListener onTouchAnswer = new ImageView.OnTouchListener()
 	{
@@ -811,6 +856,14 @@ public class PuzzleGame
 			game_start(puzzle_goal);
 		}
 	};
+
+    private DialogInterface.OnClickListener turnAgain = new DialogInterface.OnClickListener()
+    {//再玩一次
+        public void onClick(DialogInterface arg0, int arg1)
+        {
+            turn_start(puzzle_goal);
+        }
+    };
 
 	private DialogInterface.OnClickListener exitGame = new DialogInterface.OnClickListener()
 	{//不玩了
