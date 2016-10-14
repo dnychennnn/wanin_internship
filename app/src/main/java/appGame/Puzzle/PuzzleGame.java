@@ -89,62 +89,105 @@ public class PuzzleGame
 	}
 
 	public void game_start(Bitmap _goalImage)
-	{//遊戲初始化
-		// 取得切換到middle.xml(遊戲主頁)
-		activity.setContentView(R.layout.middle);
-		FrameLayout.LayoutParams params1;
-		//FrameLayout puzzle_bg = (FrameLayout)activity.findViewById(R.id.puzzle_bg);
-		FrameLayout puzzle_panel = (FrameLayout)activity.findViewById(R.id.puzzle_panel);
-		//初始化遊戲資料記錄陣列
-		puzzle_goal = _goalImage;
-		//puzzle_bg.setBackgroundDrawable(new BitmapDrawable(puzzle_goal));
-		goal_split = new Rect(0,0,puzzle_goal.getWidth(),puzzle_goal.getHeight());//切割矩形區塊為整張圖
-		Bitmap[] puzzles_image = BitmapSpliter(goal_split,x_count,y_count,puzzle_goal);
-		set_QA_array(x_count,y_count);//取得A_array跟Q_array
-		Puzzles = new PuzzleObject[x_count*y_count];
-		//動態生成拼圖鈕
-		puzzle_ydp = (int)(puzzle_xdp*(goal_split.bottom-goal_split.top)/(goal_split.right-goal_split.left));//依拼圖圖片比例(xdp*高/寬)調整拼圖鈕的dpi
+    {//遊戲初始化
+        // 取得切換到middle.xml(遊戲主頁)
+        activity.setContentView(R.layout.middle);
+        FrameLayout.LayoutParams params1;
+        //FrameLayout puzzle_bg = (FrameLayout)activity.findViewById(R.id.puzzle_bg);
+        FrameLayout puzzle_panel = (FrameLayout)activity.findViewById(R.id.puzzle_panel);
+        //初始化遊戲資料記錄陣列
+        puzzle_goal = _goalImage;
+        //puzzle_bg.setBackgroundDrawable(new BitmapDrawable(puzzle_goal));
+        goal_split = new Rect(0,0,puzzle_goal.getWidth(),puzzle_goal.getHeight());//切割矩形區塊為整張圖
+        Bitmap[] puzzles_image = BitmapSpliter(goal_split,x_count,y_count,puzzle_goal);
+        set_QA_array(x_count,y_count);//取得A_array跟Q_array
+        Puzzles = new PuzzleObject[x_count*y_count];
+        //動態生成拼圖鈕
+        puzzle_ydp = (int)(puzzle_xdp*(goal_split.bottom-goal_split.top)/(goal_split.right-goal_split.left));//依拼圖圖片比例(xdp*高/寬)調整拼圖鈕的dpi
 
-		ImageView btnBuffer;
-		for(int i = 0 ; i < x_count ; i++)
-		{
-			for(int j = 0 ; j < y_count ; j++)
-			{
-				if(i==x_count-1&&j==y_count-1)
-				{//設定目前空格的拼圖鈕座標編號為最右下角
-					block = i*x_count+j;
-				}
-				else
-				{
-					btnBuffer = (ImageView)activity.findViewById(RID[i*x_count+j]); //將XML按鈕陣列帶進BUFFER操作
-					//產生新的button
+        ImageView btnBuffer;
+        for(int i = 0 ; i < x_count ; i++) {
+            for (int j = 0; j < y_count; j++) {
+                if (i == x_count - 1 && j == y_count - 1) {//設定目前空格的拼圖鈕座標編號為最右下角
+                    block = i * x_count + j;
+                } else {
+                    btnBuffer = (ImageView) activity.findViewById(RID[i * x_count + j]); //將XML按鈕陣列帶進BUFFER操作
+                    //產生新的button
 //					btnBuffer = new ImageView(activity);
-					CurrentButtonNumber++;
-					//將值設定入遊戲資料記錄陣列
-					btnBuffer.setImageBitmap(puzzles_image[Q_array[i*x_count+j]]);
-					Puzzles[i*x_count+j] = new PuzzleObject();
-					Puzzles[i*x_count+j].no = Q_array[i*x_count+j];
-					Puzzles[i*x_count+j].values = A_array[Q_array[i*x_count+j]];
-					Puzzles[i*x_count+j].id = btnBuffer.getId();
-					Puzzles[i*x_count+j].image = puzzles_image[Q_array[i*x_count+j]];
-					Puzzles[i*x_count+j].display_object = btnBuffer;
-					//設定按鈕座標及重心於左上角
-					params1 = new FrameLayout.LayoutParams(puzzle_xdp,puzzle_ydp,Gravity.TOP | Gravity.LEFT);
-					params1.setMargins(j*puzzle_xdp, i*puzzle_ydp, j*50+50, i*50+50);
-					btnBuffer.setLayoutParams(params1);
-					//設定按鈕的觸控事件
-//					btnBuffer.setOnTouchListener(onTouchPuzzle);
-					btnBuffer.setOnTouchListener(onTouchTurn);
+                    CurrentButtonNumber++;
+                    //將值設定入遊戲資料記錄陣列
+                    btnBuffer.setImageBitmap(puzzles_image[Q_array[i * x_count + j]]);
+                    Puzzles[i * x_count + j] = new PuzzleObject();
+                    Puzzles[i * x_count + j].no = Q_array[i * x_count + j];
+                    Puzzles[i * x_count + j].values = A_array[Q_array[i * x_count + j]];
+                    Puzzles[i * x_count + j].id = btnBuffer.getId();
+                    Puzzles[i * x_count + j].image = puzzles_image[Q_array[i * x_count + j]];
+                    Puzzles[i * x_count + j].display_object = btnBuffer;
+                    //設定按鈕座標及重心於左上角
+                    params1 = new FrameLayout.LayoutParams(puzzle_xdp, puzzle_ydp, Gravity.TOP | Gravity.LEFT);
+                    params1.setMargins(j * puzzle_xdp, i * puzzle_ydp, j * 50 + 50, i * 50 + 50);
+                    btnBuffer.setLayoutParams(params1);
+                    //設定按鈕的觸控事件
+					btnBuffer.setOnTouchListener(onTouchPuzzle);
 
-					//將按鈕加入拼圖面板中
+
+                    //將按鈕加入拼圖面板中
 //					puzzle_panel.addView(btnBuffer);
-					//刷新按鈕狀態
+                    //刷新按鈕狀態
 //					btnBuffer.invalidate();
-				}
-			}
-		}
+                }
+            }
+        }
+    }
 
-		//答案面版安裝
+    public void turn_start(Bitmap _goalImage)
+    {//遊戲初始化
+        // 取得切換到middle.xml(遊戲主頁)
+        activity.setContentView(R.layout.middle);
+        FrameLayout.LayoutParams params1;
+        //FrameLayout puzzle_bg = (FrameLayout)activity.findViewById(R.id.puzzle_bg);
+        FrameLayout puzzle_panel = (FrameLayout)activity.findViewById(R.id.puzzle_panel);
+        //初始化遊戲資料記錄陣列
+        puzzle_goal = _goalImage;
+        //puzzle_bg.setBackgroundDrawable(new BitmapDrawable(puzzle_goal));
+        goal_split = new Rect(0,0,puzzle_goal.getWidth(),puzzle_goal.getHeight());//切割矩形區塊為整張圖
+        Bitmap[] puzzles_image = BitmapSpliter(goal_split,x_count,y_count,puzzle_goal);
+        set_QA_array(x_count,y_count);//取得A_array跟Q_array
+        Puzzles = new PuzzleObject[x_count*y_count];
+        //動態生成拼圖鈕
+        puzzle_ydp = (int)(puzzle_xdp*(goal_split.bottom-goal_split.top)/(goal_split.right-goal_split.left));//依拼圖圖片比例(xdp*高/寬)調整拼圖鈕的dpi
+
+        ImageView btnBuffer;
+        for(int i = 0 ; i < x_count ; i++) {
+            for (int j = 0; j < y_count; j++) {
+                btnBuffer = (ImageView) activity.findViewById(RID[i * x_count + j]); //將XML按鈕陣列帶進BUFFER操作
+                //產生新的button
+//					btnBuffer = new ImageView(activity);
+                CurrentButtonNumber++;
+                //將值設定入遊戲資料記錄陣列
+                btnBuffer.setImageBitmap(puzzles_image[Q_array[i * x_count + j]]);
+                Puzzles[i * x_count + j] = new PuzzleObject();
+                Puzzles[i * x_count + j].no = Q_array[i * x_count + j];
+                Puzzles[i * x_count + j].values = A_array[Q_array[i * x_count + j]];
+                Puzzles[i * x_count + j].id = btnBuffer.getId();
+                Puzzles[i * x_count + j].image = puzzles_image[Q_array[i * x_count + j]];
+                Puzzles[i * x_count + j].display_object = btnBuffer;
+                //設定按鈕座標及重心於左上角
+                params1 = new FrameLayout.LayoutParams(puzzle_xdp, puzzle_ydp, Gravity.TOP | Gravity.LEFT);
+                params1.setMargins(j * puzzle_xdp, i * puzzle_ydp, j * 50 + 50, i * 50 + 50);
+                btnBuffer.setLayoutParams(params1);
+                //設定按鈕的觸控事件
+//					btnBuffer.setOnTouchListener(onTouchPuzzle);
+                btnBuffer.setOnTouchListener(onTouchTurn);
+
+                //將按鈕加入拼圖面板中
+//					puzzle_panel.addView(btnBuffer);
+                //刷新按鈕狀態
+//					btnBuffer.invalidate();
+            }
+        }
+
+        //答案面版安裝
 		imgAnswer = (ImageView)activity.findViewById(R.id.img_answer);
 		imgAnswer.setImageBitmap(puzzle_goal);
 
@@ -367,6 +410,8 @@ public class PuzzleGame
 
 	int down_x;
 	int down_y;
+    int orig_x;
+    int orig_y;
 	private View.OnTouchListener onTouchTurn = new View.OnTouchListener() {
 		@Override
 		public boolean onTouch(View view, MotionEvent event) {
@@ -378,43 +423,75 @@ public class PuzzleGame
 			FrameLayout.LayoutParams p_start =(FrameLayout.LayoutParams)btnBuffer.getLayoutParams();
 			pre_x=p_start.leftMargin;
 			pre_y=p_start.topMargin;
+            Log.i("pre", pre_x +  " " +pre_y);
 
 			switch(event.getAction())
 			{//依touch事件不同作不同的事情
 				case MotionEvent.ACTION_DOWN:
 					//按下時，取得目前的x,y
-
-					Log.i("pre", pre_x + "  " + pre_y);
-
+                    //初始座標
 					down_x = (int)event.getX();
 					down_y = (int)event.getY();
-
+                    orig_x = p_start.leftMargin;
+                    orig_y = p_start.topMargin;
 					btnBuffer.setAlpha(0.5f);
-					//btnBuffer.setPadding(10,0,0,20);
-					Log.i("up", down_x + "  " + down_y);
+					btnBuffer.setPadding(10,0,0,20);
+                    Log.i("corr_orig", "x: " + orig_x + "y: " + orig_y);
 					break;
 				case MotionEvent.ACTION_MOVE:
-					//移動時，判斷按鈕移動
-					//判斷move的方向
-					now_x =((int)event.getX()-down_x)+pre_x;
+					//移動時，獲取手指位置
+					now_x = ((int)event.getX()-down_x)+pre_x;
 					now_y = ((int)event.getY()-down_y)+pre_y;
-					Log.i("move", now_x + "  " + now_y);
-
+                    if(now_x>3*puzzle_xdp) {
+                        now_x = 3*puzzle_xdp;
+                    }
+                    if(now_y>3*puzzle_ydp){
+                        now_y = 3*puzzle_ydp;
+                    }
+                    //將更新的位置設入參數
 					p_start.setMargins(now_x,now_y,0,0);
-					btnBuffer.setLayoutParams(p_start);
+                    btnBuffer.setLayoutParams(p_start);
+                    //交換事件
+                    if((now_x-orig_x) > (puzzle_xdp/2) || (now_y - orig_y) > (puzzle_ydp/2) || Math.abs(now_x-orig_x) > (puzzle_xdp/2) || Math.abs(now_y-orig_y) > (puzzle_ydp/2)) {
+                        int change_btn_x = Math.round((float)(now_x)/(float)(puzzle_xdp))*puzzle_xdp;  //計算目的按鈕的得先轉為浮點數再進行運算，方能再滑到一半就switch
+                        int change_btn_y = Math.round((float)now_y/(float)puzzle_ydp)*puzzle_ydp;
+                        Log.i("corr", "x " + change_btn_x + "y " + change_btn_y);
+
+                        //將要交換的象棋設定位置
+                        ImageView change_btn = Puzzles[ (change_btn_x/puzzle_xdp) + y_count*(change_btn_y/puzzle_ydp)].display_object;
+                        FrameLayout.LayoutParams c_start = (FrameLayout.LayoutParams)change_btn.getLayoutParams();
+                        c_start.setMargins(orig_x, orig_y,0,0);
+                        change_btn.setLayoutParams(c_start);
+
+                        //將象棋物件調換
+                        Puzzles[(orig_x / puzzle_xdp) + y_count * (orig_y / puzzle_ydp)] = Puzzles[(change_btn_x / puzzle_xdp) + y_count * (change_btn_y / puzzle_ydp)];
+
+                        orig_x = change_btn_x;
+                        orig_y = change_btn_y;
+
+                        Log.d("coor_orid", "x: " + orig_x + "y: " + orig_y);
+                    }
 					break;
 				case MotionEvent.ACTION_UP:
 
-					int new_x = (now_x/puzzle_xdp)*puzzle_xdp;
-					int new_y = (now_y/puzzle_ydp)*puzzle_ydp;
+					int new_x = Math.round((float)(now_x)/(float)(puzzle_xdp))*puzzle_xdp;;
+					int new_y = Math.round((float)(now_y)/(float)(puzzle_ydp))*puzzle_ydp;
 
 					p_start.setMargins(new_x, new_y, 0, 0);
-					Log.i("XY", new_x + "  " + new_y);
 					btnBuffer.setLayoutParams(p_start);
-					btnBuffer.setAlpha(1f);
-					//btnBuffer.setPadding(0,0,0,0);
-			}
 
+                    for(int i=0;i<x_count;i++){
+                        for(int j=0;j<y_count;j++){
+                            if(Puzzles[i*x_count+j].id == btnBuffer.getId()){
+                                Puzzles[new_x/puzzle_xdp+y_count*(new_y/puzzle_ydp)] = Puzzles[i*x_count+j]; //將象棋物件給到提起的象棋
+                            }
+                            check_OK(i*x_count+j); //判斷是否已達正確位置並設flag
+                        }
+                    }
+
+                    btnBuffer.setAlpha(1f);
+                    btnBuffer.setPadding(0,0,0,0);
+			}
 			return true;
 		}
 	};
@@ -514,6 +591,14 @@ public class PuzzleGame
             Log.i("FULLSCREEN", "isFullScreenSlide: "+isFullScreenSlide);
 		}
 	};
+
+
+    public void switch_button() {
+
+
+    }
+
+
 
 	public int[] get_canMove(int myButton)
 	{//取得目前myButton拼圖鈕的座標編號和可以移動的方向
@@ -650,6 +735,7 @@ public class PuzzleGame
 		//String error_info = "move_btn="+move_btn[0]+","+move_btn[1]+" ,block="+block+" ,new_xy="+new_x+","+new_y+" ,goal_xy="+goal_x*puzzle_dp+","+goal_y*puzzle_dp;
 		//debug_view.setText(error_info);
 	}
+
 
 	public void check_win()
 	{//判斷是否已經過關

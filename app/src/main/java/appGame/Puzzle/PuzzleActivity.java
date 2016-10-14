@@ -332,7 +332,7 @@ public class PuzzleActivity extends Activity implements SensorEventListener
 					PuzzleGame gameTurn = new PuzzleGame(x_count,y_count,v.getContext(),returnTitle);
 					goal_image_id = R.drawable.chess;//限定為棋盤
 					bmpBuffer = BitmapFactory.decodeResource(getResources(), goal_image_id);
-					gameTurn.game_start(bmpBuffer);
+					gameTurn.turn_start(bmpBuffer);
 					sence = R.layout.middle;//記錄目前在middle
 					break;
 			}
