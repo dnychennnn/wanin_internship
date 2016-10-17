@@ -205,6 +205,8 @@ public class PuzzleGame
 //					puzzle_panel.addView(btnBuffer);
                 //刷新按鈕狀態
 //					btnBuffer.invalidate();
+
+                Log.i("corr", Puzzles[i*x_count+j].no + "");
             }
         }
 
@@ -428,14 +430,18 @@ public class PuzzleGame
 			return true;
 		}
 	};
-
+/************** 轉珠模式 ********************/
 	int down_x;
 	int down_y;
     int orig_x;
     int orig_y;
+    int change_btn_x;
+    int change_btn_y;
+    PuzzleObject puzzle_orig;
 	private View.OnTouchListener onTouchTurn = new View.OnTouchListener() {
 		@Override
 		public boolean onTouch(View view, MotionEvent event) {
+
 			//動畫中不接受事件
 			if(scene_flag != 0)
 				return true;
@@ -445,7 +451,6 @@ public class PuzzleGame
 			pre_x=p_start.leftMargin;
 			pre_y=p_start.topMargin;
             Log.i("pre", pre_x +  " " +pre_y);
-
 			switch(event.getAction())
 			{//依touch事件不同作不同的事情
 				case MotionEvent.ACTION_DOWN:
@@ -457,6 +462,7 @@ public class PuzzleGame
                     orig_y = p_start.topMargin;
 					btnBuffer.setAlpha(0.5f);
 					btnBuffer.setPadding(10,0,0,20);
+                    puzzle_orig = Puzzles[(orig_x / puzzle_xdp) + y_count * (orig_y / puzzle_ydp)];
                     Log.i("corr_orig", "x: " + orig_x + "y: " + orig_y);
 					break;
 				case MotionEvent.ACTION_MOVE:
@@ -477,10 +483,12 @@ public class PuzzleGame
                     btnBuffer.setLayoutParams(p_start);
 
                     //交換事件
-                    int change_btn_x = Math.round((float)(now_x)/(float)(puzzle_xdp))*puzzle_xdp;  //計算目的按鈕的得先轉為浮點數再進行運算，方能再滑到一半就switch
-                    int change_btn_y = Math.round((float)now_y/(float)puzzle_ydp)*puzzle_ydp;
+                    change_btn_x = Math.round((float)(now_x)/(float)(puzzle_xdp))*puzzle_xdp;  //計算目的按鈕的得先轉為浮點數再進行運算，方能再滑到一半就switch
+                    change_btn_y = Math.round((float)(now_y)/(float)(puzzle_ydp))*puzzle_ydp;
                     ImageView change_btn = null;
                     if(Math.abs(now_x-orig_x) > (puzzle_xdp/3) && Math.abs(now_y-orig_y) > (puzzle_ydp/3)) {
+                        Log.i("corr", "觸發斜滑");
+                        Log.i("corr", "x " + change_btn_x + "y " + change_btn_y);
                         if( (now_x-orig_x) > 0 && (now_y-orig_y) > 0) {   //往右下
                             change_btn = Puzzles[(orig_x / puzzle_xdp) + y_count * (orig_y / puzzle_ydp) + 5].display_object;
                         } else if((now_x-orig_x) < 0 && (now_y-orig_y) > 0) { //往左下
@@ -498,12 +506,14 @@ public class PuzzleGame
                         change_btn.setLayoutParams(c_start);
                         //將象棋物件調換
                         Puzzles[(orig_x / puzzle_xdp) + y_count * (orig_y / puzzle_ydp)] = Puzzles[(change_btn_x / puzzle_xdp) + y_count * (change_btn_y / puzzle_ydp)];
+                        //reset original xy
                         orig_x = change_btn_x;
                         orig_y = change_btn_y;
                     }else {
-                        if(Math.abs(now_x-orig_x)>(puzzle_xdp*0.5) || Math.abs(now_y-orig_y)>(puzzle_ydp*0.5))
+                        if(Math.abs(now_x-orig_x)>(puzzle_xdp*0.5) || Math.abs(now_y-orig_y)>(puzzle_ydp*0.5) || (now_x-orig_x)>(puzzle_xdp*0.5) || (now_y-orig_y)>(puzzle_ydp*0.5))
                         {
-                            Log.i("corr", "x " + change_btn_x + "y " + change_btn_y);
+                            Log.i("corr", "觸發上下左右");
+                            Log.i("corr", "change_btn_x " + change_btn_x + "change_btn_y " + change_btn_y);
 
                             /************ 分別上下左右抑或是斜換 ************/
                             //上下左右
@@ -514,30 +524,32 @@ public class PuzzleGame
                             change_btn.setLayoutParams(c_start);
                             //將象棋物件調換
                             Puzzles[(orig_x / puzzle_xdp) + y_count * (orig_y / puzzle_ydp)] = Puzzles[(change_btn_x / puzzle_xdp) + y_count * (change_btn_y / puzzle_ydp)];
+                            //reset original xy
                             orig_x = change_btn_x;
                             orig_y = change_btn_y;
-                            Log.d("coor_orid", "x: " + orig_x + "y: " + orig_y);
                         }
                     }
 					break;
 				case MotionEvent.ACTION_UP:
-
-					int new_x = Math.round((float)(now_x)/(float)(puzzle_xdp))*puzzle_xdp;;
-					int new_y = Math.round((float)(now_y)/(float)(puzzle_ydp))*puzzle_ydp;
-
-					p_start.setMargins(new_x, new_y, 0, 0);
+                    Log.i("corr", "new_x: " + change_btn_x + "new_y:　" + change_btn_y);
+					p_start.setMargins(change_btn_x, change_btn_y, 0, 0);
 					btnBuffer.setLayoutParams(p_start);
-
+                    Puzzles[change_btn_x / puzzle_xdp + y_count * (change_btn_y / puzzle_ydp)] = puzzle_orig;
+                    Log.i("iddddddddd", btnBuffer.getId()+"");
                     for(int i=0;i<x_count;i++){
                         for(int j=0;j<y_count;j++){
+                            Log.i("corr", Puzzles[i*x_count+j].id + "");
+
                             if(Puzzles[i*x_count+j].id == btnBuffer.getId()){
-                                Puzzles[new_x/puzzle_xdp+y_count*(new_y/puzzle_ydp)] = Puzzles[i*x_count+j]; //將象棋物件給到提起的象棋
+                                Log.i("corr", Puzzles[i*x_count+j].no + "");
+                                Puzzles[(change_btn_x/puzzle_xdp)+y_count*(change_btn_y/puzzle_ydp)] = Puzzles[i*x_count+j]; //將象棋物件給到提起的象棋
                             }
                             check_OK(i*x_count+j); //判斷是否已達正確位置並設flag
                         }
                     }
                     btnBuffer.setAlpha(1f);
                     btnBuffer.setPadding(0,0,0,0);
+                    check_win();
 			}
 			return true;
 		}

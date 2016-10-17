@@ -52,12 +52,12 @@
         "source": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\src\\main\\res\\layout\\viewpager_3.xml"
     },
     {
-        "merged": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_media_action.xml",
-        "source": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\notification_media_action.xml"
-    },
-    {
         "merged": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_button_bar_material.xml",
         "source": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_media_action.xml",
+        "source": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\notification_media_action.xml"
     },
     {
         "merged": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media_narrow.xml",
@@ -72,12 +72,12 @@
         "source": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\notification_template_big_media.xml"
     },
     {
-        "merged": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
-        "source": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_list_menu_item_icon.xml"
-    },
-    {
         "merged": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\build\\intermediates\\res\\merged\\debug\\layout\\viewpager_8.xml",
         "source": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\src\\main\\res\\layout\\viewpager_8.xml"
+    },
+    {
+        "merged": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
+        "source": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_list_menu_item_icon.xml"
     },
     {
         "merged": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
@@ -184,12 +184,12 @@
         "source": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\src\\main\\res\\layout\\viewpager_4.xml"
     },
     {
-        "merged": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\build\\intermediates\\res\\merged\\debug\\layout\\viewpager_1.xml",
-        "source": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\src\\main\\res\\layout\\viewpager_1.xml"
-    },
-    {
         "merged": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\build\\intermediates\\res\\merged\\debug\\layout\\main.xml",
         "source": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\src\\main\\res\\layout\\main.xml"
+    },
+    {
+        "merged": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\build\\intermediates\\res\\merged\\debug\\layout\\viewpager_1.xml",
+        "source": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\src\\main\\res\\layout\\viewpager_1.xml"
     },
     {
         "merged": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
