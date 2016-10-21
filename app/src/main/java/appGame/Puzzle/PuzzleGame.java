@@ -4,33 +4,27 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Outline;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
-import android.graphics.Typeface;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.media.Image;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Handler;
-import android.provider.ContactsContract;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewOutlineProvider;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 public class PuzzleGame
 {
+    private final String TAG = "SENSOR";
 	public Activity activity;
 	public int x_count;										//拼圖鈕最大列數
 	public int y_count;										//拼圖鈕最大欄數
@@ -52,6 +46,7 @@ public class PuzzleGame
 	private int WASH_TIMES = 100;							//洗牌時的隨機次數
 	private DialogInterface.OnClickListener returnTitle;	//從上層接過來的回主選單function
 	private boolean isFullScreenSlide=false;						//判斷滑動狀態
+    private boolean isSensorSlide = false;
 
 	private int puzzle_xdp=70;								//拼圖鈕的dpi，這邊設定為
 	private int puzzle_ydp=70;								//拼圖鈕的dpi，這邊設定為
@@ -64,11 +59,15 @@ public class PuzzleGame
 	private Button btnRestart;								//重新玩按鈕
 	private Button btnReturnTitle;							//回主選單按紐
 	private Button btnFullScreen;                           //切換為全螢幕滑動
+    private Button btnSensor;
 	private int[] RID = {R.id.btnbuffer1, R.id.btnbuffer2, R.id.btnbuffer3, R.id.btnbuffer4, R.id.btnbuffer5,
 		R.id.btnbuffer6, R.id.btnbuffer7, R.id.btnbuffer8, R.id.btnbuffer9, R.id.btnbuffer10,
 		R.id.btnbuffer11, R.id.btnbuffer12, R.id.btnbuffer13, R.id.btnbuffer14, R.id.btnbuffer15,
 		R.id.btnbuffer16, R.id.btnbuffer17, R.id.btnbuffer18, R.id.btnbuffer19, R.id.btnbuffer20,
-		R.id.btnbuffer21, R.id.btnbuffer22, R.id.btnbuffer23, R.id.btnbuffer24, R.id.btnbuffer25};
+		R.id.btnbuffer21, R.id.btnbuffer22, R.id.btnbuffer23, R.id.btnbuffer24, R.id.btnbuffer25, R.id.btnbuffer26, R.id.btnbuffer27, R.id.btnbuffer28, R.id.btnbuffer29, R.id.btnbuffer30, R.id.btnbuffer31, R.id.btnbuffer32};
+
+    //接近感應器
+    private SensorManager mgr;
 
 	public PuzzleGame(int _x_count,int _y_count,Context _activity,DialogInterface.OnClickListener _returnTitle)
 	{//建構式
@@ -104,6 +103,9 @@ public class PuzzleGame
         Puzzles = new PuzzleObject[x_count*y_count];
         //動態生成拼圖鈕
         puzzle_ydp = (int)(puzzle_xdp*(goal_split.bottom-goal_split.top)/(goal_split.right-goal_split.left));//依拼圖圖片比例(xdp*高/寬)調整拼圖鈕的dpi
+
+        // Android 所有的感應器的統一介面
+        this.mgr = (SensorManager) activity.getSystemService(activity.SENSOR_SERVICE);
 
         ImageView btnBuffer;
         for(int i = 0 ; i < x_count ; i++) {
@@ -143,7 +145,7 @@ public class PuzzleGame
 		imgAnswer.setImageBitmap(puzzle_goal);
 
 		//判定是否已經有正確的按鈕
-		check_original_OK();
+		check_original_OK(Puzzles);
 
 		//主功能選單事件安裝
 		//--重玩鈕--
@@ -158,7 +160,9 @@ public class PuzzleGame
 		//切換全螢幕滑動
 		btnFullScreen = (Button)activity.findViewById(R.id.btnfullscreen);
 		btnFullScreen.setOnClickListener(OnClickFullScreen);
-		btnFullScreen.setOnClickListener(OnClickFullScreen);
+        //使用陀螺儀做為滑動
+        btnSensor = (Button)activity.findViewById(R.id.btnsensor);
+        btnSensor.setOnClickListener(OnClickSensor);
     }
 
     public void turn_start(Bitmap _goalImage)
@@ -215,7 +219,7 @@ public class PuzzleGame
 		imgAnswer.setImageBitmap(puzzle_goal);
 
 		//判定是否已經有正確的按鈕
-		check_original_OK();
+		check_original_OK(Puzzles);
 
 		//主功能選單事件安裝
 		//--重玩鈕--
@@ -232,6 +236,7 @@ public class PuzzleGame
         btnFullScreen.setOnClickListener(OnClickFullScreen);
 		btnFullScreen.setVisibility(View.INVISIBLE);
     }
+
 
 	public void set_QA_array(int _x_count,int _y_count)
 	{
@@ -348,7 +353,9 @@ public class PuzzleGame
 
 					//取得按下的拼圖鈕座標及可移動方向
 					int[] canMove = get_canMove(btnBuffer.getId());
-					//判斷是否可移動
+                    Log.i("canMove", canMove[0]+" "+canMove[1]);
+
+                    //判斷是否可移動
 					if((canMove[1] == move_direction[0] || canMove[1] == move_direction[1]) && canMove[1] != 0)
 					{//如果目前的移動方向等於可移動方向，最後得判斷!=0，以確保不會出現都是0結果進入的情況
 						//將此拼圖鈕設定為移動目標
@@ -360,6 +367,7 @@ public class PuzzleGame
 			return true;
 		}
 	};
+
 
 	private View.OnTouchListener onTouchFullScreen = new View.OnTouchListener() {
 		@Override
@@ -669,6 +677,21 @@ public class PuzzleGame
 		}
 	};
 
+    private Button.OnClickListener OnClickSensor = new Button.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            if (!isSensorSlide) {
+                btnSensor.setBackgroundColor(Color.BLUE);
+                mgr.registerListener(msel, mgr.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_GAME);
+                isSensorSlide = !isSensorSlide;
+            } else {
+                btnSensor.setBackgroundColor(Color.LTGRAY);
+                mgr.unregisterListener(msel);
+                isSensorSlide = !isSensorSlide;
+            }
+        }
+    };
+
 
 
 
@@ -702,32 +725,34 @@ public class PuzzleGame
 	}
 
 	public int[] get_canMove2(int movedirection)
-	{//取得目前myButton拼圖鈕的座標編號和可以移動的方向
-		int[] result = new int[]{0,0};//[0]為目前拼圖鈕的座標編號 [1]為可移動方向
-        int block_x, block_y;
+{//取得目前myButton拼圖鈕的座標編號和可以移動的方向
+    int[] result = new int[]{0,0};//[0]為目前拼圖鈕的座標編號 [1]為可移動方向
+    int block_x, block_y;
 
-        block_x = block%x_count;
-        block_y = block/y_count;
+    block_x = block%x_count;
+    block_y = block/y_count;
 
-        if(movedirection==1 && block_y!=(y_count-1)){
-            // 向上
-            result[0] = (block_y+1)*y_count+block_x;
-            result[1] = movedirection;
-        } else if(movedirection==2 && block_y!=0){
-            // 向下
-            result[0] = (block_y-1)*x_count+block_x;
-            result[1] = movedirection;
-        } else if(movedirection==3 && block_x != (x_count-1) ){
-            //向左
-            result[0] = block_y * y_count + (block_x+1);
-            result[1] = movedirection;
-        } else if(movedirection==4 && block_x != 0){
-            //向右
-            result[0] = block_y * y_count + (block_x-1);
-            result[1] = movedirection;
-        }
-        return result;
-	}
+    if(movedirection==1 && block_y!=(y_count-1)){
+        // 向上
+        result[0] = (block_y+1)*y_count+block_x;
+        result[1] = movedirection;
+    } else if(movedirection==2 && block_y!=0){
+        // 向下
+        result[0] = (block_y-1)*x_count+block_x;
+        result[1] = movedirection;
+    } else if(movedirection==3 && block_x != (x_count-1) ){
+        //向左
+        result[0] = block_y * y_count + (block_x+1);
+        result[1] = movedirection;
+    } else if(movedirection==4 && block_x != 0){
+        //向右
+        result[0] = block_y * y_count + (block_x-1);
+        result[1] = movedirection;
+    }
+    return result;
+}
+
+
 
 	//動畫用timer
 	private Runnable tick = new Runnable()
@@ -748,6 +773,7 @@ public class PuzzleGame
 		int x_speed = (int)(10*dpi);
 		int y_speed = (int)(10*dpi);
 		ImageView btn_start = Puzzles[move_btn[0]].display_object;
+        Log.i("touchpuzzle", "movebtn:" + move_btn[0] + "");
 		FrameLayout.LayoutParams p_start =(FrameLayout.LayoutParams)btn_start.getLayoutParams();
 		//取得相關座標
 		int new_x = p_start.leftMargin;		//移動後的X(先預設為目前起始的點)
@@ -788,6 +814,7 @@ public class PuzzleGame
 
 		if(new_x == goal_x*puzzle_xdp && new_y == goal_y*puzzle_ydp)
 		{//已移動到目標點，關閉動畫
+            Log.i("btn", block+" " +move_btn[0]);
 			Puzzles[block] = Puzzles[move_btn[0]];
 			Puzzles[move_btn[0]] = new PuzzleObject();
 
@@ -836,7 +863,7 @@ public class PuzzleGame
             }
 		}
 
-	public void check_original_OK() {
+	public void check_original_OK(PuzzleObject Puzzles[]) {
 		for(int i = 0; i < x_count*y_count-1; i++) {
 			if(Puzzles[i].values == A_array[i]) {
 				Bitmap bitmap = Bitmap.createBitmap(Puzzles[i].image, 0, 0, Puzzles[i].image.getWidth(), Puzzles[i].image.getHeight());
@@ -884,4 +911,72 @@ public class PuzzleGame
 			activity.finish();
 		}
 	};
+
+
+    float x, y, z;
+    int[] canMove;
+    private SensorEventListener msel = new SensorEventListener() {
+        @Override
+        public void onSensorChanged(SensorEvent event) {
+            Log.d(TAG, "onSensorChanged...");
+            Log.i("GYROSCOPE", "x: " + event.values[0] + " y: " + event.values[1] + " z: " + event.values[2]);
+            //		y
+            //       |
+            //-------|------->x    往天空指就是正的
+            //       |z
+
+            x = event.values[0]; //
+            y = event.values[1]; //
+            z = event.values[2]; //
+
+            if (z > 8) {
+                move_direction[0] = 0;
+            }
+             else{
+                    if (x > 5) {
+                        //往左
+                        move_direction[0] = 3;
+                        //canMove = get_canMove2(move_direction[0]);
+                        Log.i("Dir", "往左 ");
+                    } else if (x < -5) {
+                        //往右
+                        move_direction[0] = 4;
+                        //canMove = get_canMove2(move_direction[0]);
+                        Log.i("Dir", "往右 ");
+                    } else {
+                        if (y > 5) {
+                            //往下
+                            move_direction[0] = 2;
+                            //canMove = get_canMove2(move_direction[0]);
+                            Log.i("Dir", "往下 ");
+                        } else if (y < -5) {
+                            //往上
+                            move_direction[0] = 1;
+                            //canMove = get_canMove2(move_direction[0]);
+                            Log.i("Dir", "往上 ");
+                        }
+                    }
+                }
+
+            Log.i("dir", move_direction[0]+"");
+            canMove = get_canMove2(move_direction[0]);
+            Log.i("ACTION: ", "UP");
+            //Log.i("dir", canMove[1]+"");
+
+            //判斷是否可移動
+            if((canMove[1] == move_direction[0] || canMove[1] == move_direction[1]) && canMove[1] != 0)
+            {//如果目前的移動方向等於可移動方向，最後得判斷!=0，以確保不會出現都是0結果進入的情況
+                //將此拼圖鈕設定為移動目標
+                move_btn = canMove;
+                scene_flag = 1;
+            }
+        }
+
+        @Override
+        public void onAccuracyChanged(Sensor sensor, int i) {
+
+        }
+    };
+
+
 }

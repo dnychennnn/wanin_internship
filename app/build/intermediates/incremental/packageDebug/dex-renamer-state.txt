@@ -1,4 +1,4 @@
-#Mon Oct 17 09:36:54 CST 2016
+#Fri Oct 21 11:37:58 CST 2016
 base.0=C\:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_10d83442c49d5ea363648b490db609825eb2f37a
 renamed.1=classes.dex
 renamed.0=classes2.dex

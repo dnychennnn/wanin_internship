@@ -184,12 +184,12 @@
         "source": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\src\\main\\res\\layout\\viewpager_4.xml"
     },
     {
-        "merged": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\build\\intermediates\\res\\merged\\debug\\layout\\main.xml",
-        "source": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\src\\main\\res\\layout\\main.xml"
-    },
-    {
         "merged": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\build\\intermediates\\res\\merged\\debug\\layout\\viewpager_1.xml",
         "source": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\src\\main\\res\\layout\\viewpager_1.xml"
+    },
+    {
+        "merged": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\build\\intermediates\\res\\merged\\debug\\layout\\main.xml",
+        "source": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\src\\main\\res\\layout\\main.xml"
     },
     {
         "merged": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",

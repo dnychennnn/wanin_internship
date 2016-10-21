@@ -47,7 +47,7 @@ import java.util.Date;
 import java.util.List;
 
 
-public class PuzzleActivity extends Activity implements SensorEventListener
+public class PuzzleActivity extends Activity
 {
 	/** Called when the activity is first created. */
 	private final static int RESULT_LOAD_IMAGE = 123;
@@ -62,19 +62,8 @@ public class PuzzleActivity extends Activity implements SensorEventListener
 	private int i1=1;
     private boolean isSnapAndLoad = false;
 
-    //接近感應器
-    private SensorManager mgr;
-    private Sensor proximity;
-    private Vibrator vibrator;
-    private float lastVal = -1;
-
-
 	Bitmap bmpBuffer;
 	ImageView image1;
-
-	//全屏滑動
-	private int pre_x;
-	private int pre_y;
 
 
 
@@ -98,6 +87,7 @@ public class PuzzleActivity extends Activity implements SensorEventListener
 		Button btnShot;
         Button btnScreenShot;
 		Button btnTurn;
+		Button btn2layer;
 		//取得按鈕元件
 		btnEasy = (Button)findViewById(R.id.btn_3x3);
 		btnMiddle = (Button)findViewById(R.id.btn_4x4);
@@ -106,6 +96,7 @@ public class PuzzleActivity extends Activity implements SensorEventListener
 		btnShot = (Button)findViewById(R.id.btn_shot);
 		btnTurn = (Button)findViewById(R.id.btn_turn);
         btnScreenShot = (Button)findViewById(R.id.btn_screenshot);
+        btn2layer = (Button)findViewById(R.id.btn_2layer);
 		// 設定Click事件
 		btnEasy.setOnClickListener(onbtnChoose);
 		btnMiddle.setOnClickListener(onbtnChoose);
@@ -114,6 +105,7 @@ public class PuzzleActivity extends Activity implements SensorEventListener
 		btnShot.setOnClickListener(onbtnChoose);
         btnScreenShot.setOnClickListener(onbtnChoose);
 		btnTurn.setOnClickListener(onbtnChoose);
+        btn2layer.setOnClickListener(onbtnChoose);
 
 		//選取圖片的Button
 		Button btn_next = (Button)findViewById(R.id.NEXT_BUTTON);//設定觸碰更換圖片按鈕的反應
@@ -208,58 +200,10 @@ public class PuzzleActivity extends Activity implements SensorEventListener
         i1 = 1;
 
 
-		// Android 所有的感應器的統一介面
-		this.mgr = (SensorManager) this.getSystemService(Context.SENSOR_SERVICE);
-		// 取得距離感應器
-		this.proximity = this.mgr.getDefaultSensor(Sensor.TYPE_PROXIMITY);
-		// 用振動來反應距離的變化
-		this.vibrator = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
 
 
-		// Zoom
 
 	}
-
-	@Override
-	public void onSensorChanged(SensorEvent event) {
-		Sensor sensor = event.sensor;
-		Log.i(TAG, "sensor name: "+sensor.getName() + " " +
-				"sensor type: "+ sensor.getType());
-		if(event.sensor.getType()== Sensor.TYPE_PROXIMITY)
-		{
-			Log.d(TAG, "onSensorChanged...");
-			if (event.values[0] == 0) {
-				//near
-				Toast.makeText(getApplicationContext(), "near", Toast.LENGTH_SHORT).show();
-			} else {
-				//far
-				Toast.makeText(getApplicationContext(), "far", Toast.LENGTH_SHORT).show();
-			}
-		}
-
-	}
-
-	@Override
-	public void onAccuracyChanged(Sensor sensor, int accuracy) {
-	}
-
-	@Override
-	protected void onResume() {
-		super.onResume();
-		Log.d(TAG, "registerListener...");
-		// 一定要在這註冊
-		this.mgr.registerListener(this, this.proximity,
-				SensorManager.SENSOR_DELAY_NORMAL);
-	}
-
-	@Override
-	protected void onPause() {
-		super.onPause();
-		Log.d(TAG, "unregisterListener...");
-		// 一定要在這解註冊
-		this.mgr.unregisterListener(this, this.proximity);
-	}
-
 
 
 
@@ -275,7 +219,7 @@ public class PuzzleActivity extends Activity implements SensorEventListener
 					x_count=3;
 					y_count=3;
 					PuzzleGame game3x3 = new PuzzleGame(x_count,y_count,v.getContext(),returnTitle);
-                    if(isSnapAndLoad){
+					if(isSnapAndLoad){
                         bmpBuffer = getloadImageFromStorage("/data/data/appGame.Puzzle/app_imageDir/");
                         game3x3.game_start(bmpBuffer);
                         isSnapAndLoad = false; //避免一直進來snapload
@@ -335,6 +279,17 @@ public class PuzzleActivity extends Activity implements SensorEventListener
 					gameTurn.turn_start(bmpBuffer);
 					sence = R.layout.middle;//記錄目前在middle
 					break;
+                case R.id.btn_2layer:
+                    x_count=4;
+                    y_count=4;
+                    DoubleGame game2layer = new DoubleGame(x_count, y_count, v.getContext(), returnTitle);
+                    goal_image_id = R.drawable.chess;//限定為棋盤
+                    int layer2_image_id = R.drawable.chess_red;
+                    bmpBuffer = BitmapFactory.decodeResource(getResources(), goal_image_id);
+                    Bitmap bmpLayer2 = BitmapFactory.decodeResource(getResources(), layer2_image_id);
+                    game2layer.Doublelayer_start(bmpBuffer, bmpLayer2);
+                    sence = R.layout.middle;//記錄目前在middle
+                    break;
 			}
 		}
 	};

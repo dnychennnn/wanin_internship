@@ -32,6 +32,20 @@
 			android:background="@drawable/buttonlevel"/>
 
 
+	<Button
+		android:text="雙排"
+		android:layout_width="match_parent"
+		android:layout_height="80px"
+		android:id="@+id/btn_2layer"
+		android:background="@drawable/buttonlevel" />
+
+	<Button
+		android:text="轉珠"
+		android:layout_width="match_parent"
+		android:id="@+id/btn_turn"
+		android:background="@drawable/buttonlevel"
+		android:layout_height="80px" />
+
 	<LinearLayout
 		android:orientation="horizontal"
 		android:layout_width="match_parent"
@@ -61,13 +75,6 @@
                 android:background="@drawable/buttonlevel"
 			android:layout_weight="1" />
 	</LinearLayout>
-
-	<Button
-		android:text="轉珠"
-		android:layout_width="match_parent"
-		android:id="@+id/btn_turn"
-		android:background="@drawable/buttonlevel"
-		android:layout_height="80px" />
 
 	<RelativeLayout android:id="@+id/RelativeLayout1"
 		android:layout_width="wrap_content"

@@ -56,6 +56,10 @@
         "source": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_item_background_holo_light.xml"
     },
     {
+        "merged": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\chess_red.png",
+        "source": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\src\\main\\res\\drawable\\chess_red.png"
+    },
+    {
         "merged": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_spinner_textfield_background_material.xml",
         "source": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_spinner_textfield_background_material.xml"
     },
@@ -144,12 +148,12 @@
         "source": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_ratingbar_indicator_material.xml"
     },
     {
-        "merged": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\main2.png",
-        "source": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\src\\main\\res\\drawable\\main2.png"
-    },
-    {
         "merged": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_dialog_material_background_dark.xml",
         "source": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_dialog_material_background_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\main2.png",
+        "source": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\src\\main\\res\\drawable\\main2.png"
     },
     {
         "merged": "C:\\Users\\yungyu.chen\\StudioProjects\\puzzle\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_dark.xml",
