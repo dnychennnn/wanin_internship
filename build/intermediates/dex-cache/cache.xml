@@ -16,7 +16,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="c3ace50f3bd4155500877a8ef158de50e83f9402">
+        sha1="6ecb9d217a2da45263d49ed68a84bff4c275b84e">
         <dex dex="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_10d83442c49d5ea363648b490db609825eb2f37a\classes.dex" />
     </item>
     <item
@@ -70,7 +70,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="4aa3f160da1e965ca82217f97d99b8235959a187">
+        sha1="542b3ee7717e623430bba6d6fed9e8dab83ae721">
         <dex dex="C:\Users\yungyu.chen\StudioProjects\puzzle\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_0c2d47d1392672cc00577b25a6f6122ea546e3cb\classes.dex" />
     </item>
     <item

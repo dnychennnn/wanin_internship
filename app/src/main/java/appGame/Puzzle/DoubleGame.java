@@ -9,8 +9,10 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
+import android.media.Image;
 import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -36,8 +38,6 @@ public class DoubleGame {
     private int CurrentButtonNumber = 5;					//拼圖鈕的id編號(可隨意列)
     private int pre_x;
     private int pre_y;
-    private int now_x;
-    private int now_y;
     private int block;										//目前空格的拼圖鈕座標編號
     private int[] move_btn;									//目前要移動至空格的拼圖鈕座標編號,移動方向
     private int[] move_direction = new int[]{0,0};			//判斷全螢幕時之上下左右滑動
@@ -153,7 +153,7 @@ public class DoubleGame {
                     CurrentButtonNumber++;
                     //將值設定入遊戲資料記錄陣列
                     btnBuffer.setImageBitmap(puzzles_image2[Q_array[i * x_count + j]]);
-                    btnBuffer.setZ(10);
+                    btnBuffer.setZ(1);
                     Puzzles2[1][i * x_count + j] = new PuzzleObject();
                     Puzzles2[1][i * x_count + j].no = Q_array[i * x_count + j];
                     Puzzles2[1][i * x_count + j].values = A_array[Q_array[i * x_count + j]];
@@ -163,7 +163,7 @@ public class DoubleGame {
                     Puzzles2[1][i * x_count + j].display_object = btnBuffer;
                     //設定按鈕座標及重心於左上角
                     params1 = new FrameLayout.LayoutParams(puzzle_xdp, puzzle_ydp, Gravity.TOP | Gravity.LEFT);
-                    params1.setMargins(j * puzzle_xdp, i * puzzle_ydp, j * 50 + 50, i * 50 + 150);
+                    params1.setMargins(j * puzzle_xdp, i * puzzle_ydp-50, j * 50 + 50, i * 50 + 50);
                     btnBuffer.setLayoutParams(params1);
                     //設定按鈕的觸控事件
                     btnBuffer.setOnTouchListener(onTouch2layer);
@@ -285,6 +285,7 @@ public class DoubleGame {
         @Override
         public boolean onTouch(View view, MotionEvent event) {
             id = view.getId();
+            Log.i("234", id+"");
             if (gestureDetector.onTouchEvent(event)) {
                 return true;
             } else {
@@ -301,6 +302,7 @@ public class DoubleGame {
                     case MotionEvent.ACTION_MOVE:
                         //移動時，判斷按鈕移動
                         ImageView btnBuffer = (ImageView) activity.findViewById(view.getId());
+                        Log.i("234", "view.getid: " + btnBuffer.getId());
                         //判斷move的方向
                         int now_x = (int) event.getX();
                         int now_y = (int) event.getY();
@@ -336,18 +338,27 @@ public class DoubleGame {
         @Override
         public boolean onDoubleTap(MotionEvent motionEvent) {
             ImageView btnbuffer  = (ImageView) activity.findViewById(id);
-            Log.i("123", ""+id);
+
             nowZ=btnbuffer.getZ();
             for(int i = 0; i < x_count; i++)
             {
                 for(int j = 0; j < y_count; j++)
                 {
-                    Log.i("123", ""+Puzzles2[1][i*x_count+j].id + ", " + id);
                     if(Puzzles2[1][i*x_count+j].id == id)
-                    {
+                        {
+                        //交換上下ImageView
+                        ImageView lowerbtn = (ImageView)activity.findViewById(Puzzles2[0][i*x_count+j].id);
+                        ImageView tempImageView = lowerbtn;
+                        lowerbtn = btnbuffer;
+                        btnbuffer = tempImageView;
+                        //設定下層的z-index低於上層的
+                        btnbuffer.setZ(1);
+                        lowerbtn.setZ(0);
 
-                        Log.i("switch", btnbuffer.getZ()+"");
-                        btnbuffer.setZ(nowZ-100);
+//                      交換上下層物件
+                        PuzzleObject temp = Puzzles2[1][i*x_count+j];
+                        Puzzles2[1][i*x_count+j] = Puzzles2[0][i*x_count+j];
+                        Puzzles2[0][i*x_count+j] = temp;
 
                         //強制結束迴圈
                         i=4;
@@ -535,8 +546,12 @@ public class DoubleGame {
         {
             for(int j = 0; j < y_count; j++)
             {
+                if(i == x_count-1 && j ==y_count-1){
+                    break;
+                }
                 if(Puzzles2[1][i*x_count+j].id == myButton)
                     {
+                        Log.i("234", i*x_count+j+"denn");
                     result[0] = i*x_count+j;
 
                     if(((i-1)*x_count+j) == block)//可上
@@ -588,14 +603,14 @@ public class DoubleGame {
         switch(move_btn[1])
         {
             case 1://向上
-                if((p_start.topMargin - y_speed)<= (goal_y*puzzle_ydp))
-                    new_y = goal_y*puzzle_ydp;
+                if((p_start.topMargin - y_speed)<= (goal_y*puzzle_ydp-50))
+                    new_y = goal_y*puzzle_ydp-50;
                 else
                     new_y -= y_speed;
                 break;
             case 2://向下
-                if((p_start.topMargin + y_speed)>= goal_y*puzzle_ydp)
-                    new_y = goal_y*puzzle_ydp;
+                if((p_start.topMargin + y_speed)>= goal_y*puzzle_ydp-50)
+                    new_y = goal_y*puzzle_ydp-50;
                 else
                     new_y += y_speed;
                 break;
@@ -618,7 +633,7 @@ public class DoubleGame {
         Log.i("xy_new","new_x: " + new_x + " new_y: " + new_y);
         Log.i("xy_goal","goal_x: " + goal_x*puzzle_xdp + " goal_y: "+ (goal_y*puzzle_ydp-45));
 
-        if(new_x == goal_x*puzzle_xdp && new_y == goal_y*puzzle_ydp)
+        if(new_x == goal_x*puzzle_xdp && new_y == goal_y*puzzle_ydp-50)
         {//已移動到目標點，關閉動畫
             Log.i("btn", block+" " +move_btn[0]);
             Puzzles2[1][block] = Puzzles2[1][move_btn[0]];

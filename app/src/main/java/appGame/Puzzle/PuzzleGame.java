@@ -533,6 +533,7 @@ public class PuzzleGame
                             //將象棋物件調換
                             Puzzles[(orig_x / puzzle_xdp) + y_count * (orig_y / puzzle_ydp)] = Puzzles[(change_btn_x / puzzle_xdp) + y_count * (change_btn_y / puzzle_ydp)];
                             //reset original xy
+							Log.i("789", change_btn.getId()+" " + Puzzles[(orig_x / puzzle_xdp) + y_count * (orig_y / puzzle_ydp)].id);
                             orig_x = change_btn_x;
                             orig_y = change_btn_y;
                         }
@@ -547,7 +548,6 @@ public class PuzzleGame
                     for(int i=0;i<x_count;i++){
                         for(int j=0;j<y_count;j++){
                             Log.i("corr", Puzzles[i*x_count+j].id + "");
-
                             if(Puzzles[i*x_count+j].id == btnBuffer.getId()){
                                 Log.i("corr", Puzzles[i*x_count+j].no + "");
                                 Puzzles[(change_btn_x/puzzle_xdp)+y_count*(change_btn_y/puzzle_ydp)] = Puzzles[i*x_count+j]; //將象棋物件給到提起的象棋
